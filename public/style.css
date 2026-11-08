@@ -1,0 +1,202 @@
+body{ 
+    font-family:"Comfortaa";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #cdd7e2;
+    padding: 0px;
+    margin: 0;
+}
+
+.svgMap {
+    background: #d6e2ea;
+    border: 3px solid #7b9bab;
+    border-radius: 8px;
+    width: 940px;
+    height: 550px;
+    display: block;
+    flex-shrink: 0; /* щоб контейнер не намагався її стиснути */
+}
+
+header h1{
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #7b9bab;
+}
+
+.main {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.svgMap image{
+    display: none;
+}
+.svgMap image.active {
+    display: block;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.floor-btn {
+    padding: 10px 20px;
+    border: 2px solid #ffffff;
+    background: #e4eaf2;
+    border-radius: 5px;
+    
+    cursor: pointer;
+    text-align: center;
+    color: #6e6e6e;
+}
+
+.floor-btn:hover {
+    background: #d6e2ea;
+}
+
+.floor-btn.active {
+    background-color: #9cbfce;
+    color: white;
+}
+
+/* Контейнер для стрілочок між кнопками */
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    color: #cbd5e1;
+
+}
+
+.arrow-ap.active {
+    color: #0051fffc; 
+    transform: scale(1.1);
+}
+
+.route-panel {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    border-radius: 10px;
+}
+
+.route-panel input {
+    padding: 8px 12px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    width: 170px;
+    color: #6e6e6e;
+    background: #e4eaf2;
+}
+
+.route-arrow {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #c4cdd9;
+}
+
+#find-route-btn {
+    padding: 8px 16px;
+    background: #e4eaf2;
+    color: #6e6e6e;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#alt-route-btn {
+    padding: 8px 16px;
+    background: #e4eaf2;
+    color: #6e6e6e;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+#info {
+    background: #7b9bab;
+    color: white;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.info-block {
+    background: #fbfcfc;
+    border: 2px solid #9cbfce;
+    border-radius:5px;
+    width: 400px;
+    text-align: center;
+    color: #93b4c2;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+
+@media (max-width: 768px) {
+    /* Зменшуємо відступи та робимо елементи гнучкими */
+    body {
+        padding: 10px;
+    }
+
+    /* Адаптимо саму карту під ширину екрана смартфона */
+    .svgMap {
+        width: 100%;          /* Займає всю ширину екрана */
+        max-width: 100%;      /* Скасовуємо десктопне обмеження */
+        height: auto;         /* Висота автоматично пропорційна viewBox */
+        max-height: 400px;    /* Обмежуємо максимальну висоту, щоб не скролити занадто далеко */
+    }
+
+    /* Блок main стає вертикальним: карта зверху, кнопки поверхів під нею */
+    .main {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    /* Панель пошуку розтягуємо на весь екран, щоб пальцем було зручно тиснути */
+    .route-panel {
+        flex-direction: column;
+        width: 90%;
+        max-width: 400px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .route-panel input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #find-route-btn, 
+    #alt-route-btn {
+        width: 100%;
+    }
+
+    .route-arrow {
+        transform: rotate(90deg); /* Повертаємо стрілку вниз для вертикального вигляду */
+        margin: 5px 0;
+    }
+
+    /* Кнопки поверхів виносимо горизонтально в рядок */
+    .buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+}
+
